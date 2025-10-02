@@ -1,0 +1,486 @@
+/**
+ * Bancard VPOS Styles
+ * Compatible with modern WooCommerce themes and responsive design
+ */
+
+/* ==========================================================================
+   WooCommerce Blocks Integration
+   ========================================================================== */
+
+.bancard-vpos-payment-method-content {
+    padding: 1rem 0;
+}
+
+.bancard-vpos-payment-method-edit {
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+}
+
+.bancard-secure-notice {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: 6px;
+    color: #1565c0;
+    font-size: 0.9rem;
+    margin: 0.75rem 0;
+}
+
+.bancard-secure-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.bancard-processing-notice {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+    color: #856404;
+    font-size: 0.9rem;
+    margin: 0.75rem 0;
+}
+
+.bancard-processing-notice::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #856404;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: bancard-spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+/* Blocks specific styles */
+.wc-block-checkout__payment-method .bancard-description {
+    margin: 0.5rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.wc-block-checkout__payment-method .bancard-vpos-payment-method-content {
+    margin: 0;
+    padding: 0.75rem 0;
+}
+
+/* ==========================================================================
+   Payment Form Container
+   ========================================================================== */
+
+.bancard-payment-container {
+    margin: 1rem 0;
+    padding: 1.25rem;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.bancard-payment-container:hover {
+    border-color: #dee2e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bancard-description {
+    margin-bottom: 1rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.bancard-redirect-notice {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: 6px;
+    color: #1565c0;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.bancard-redirect-notice::before {
+    content: "🔒";
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Iframe Container
+   ========================================================================== */
+
+#bancard-iframe-container {
+    min-height: 450px;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+#bancard-iframe-container iframe {
+    width: 100% !important;
+    min-height: 450px !important;
+    border: none !important;
+    border-radius: 8px;
+}
+
+/* Loading State */
+.bancard-loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.bancard-loading-spinner .spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: bancard-spin 1s linear infinite;
+    margin-bottom: 0.75rem;
+}
+
+@keyframes bancard-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Empty state placeholder */
+#bancard-iframe-container:empty::before {
+    content: "Preparando formulario de pago seguro...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #6c757d;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Receipt Page Styles
+   ========================================================================== */
+
+.bancard-receipt-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.bancard-receipt-container h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.bancard-receipt-container p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Messages and Notifications
+   ========================================================================== */
+
+.bancard-message {
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+    border-left: 4px solid;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+    animation: bancard-slideIn 0.3s ease-out;
+}
+
+@keyframes bancard-slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bancard-message.woocommerce-error {
+    background: #fef2f2;
+    border-left-color: #ef4444;
+    color: #b91c1c;
+}
+
+.bancard-message.woocommerce-message {
+    background: #f0fdf4;
+    border-left-color: #22c55e;
+    color: #15803d;
+}
+
+.bancard-message.woocommerce-info {
+    background: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1d4ed8;
+}
+
+/* ==========================================================================
+   Admin Styles
+   ========================================================================== */
+
+.bancard-admin-notice {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    border-left: 4px solid #3b82f6;
+    background: #f8fafc;
+}
+
+.bancard-settings-section {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.bancard-settings-section h3 {
+    margin-top: 0;
+    color: #374151;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   WooCommerce Integration
+   ========================================================================== */
+
+.woocommerce .bancard-payment-container {
+    margin: 1em 0;
+}
+
+.woocommerce-checkout .bancard-payment-container {
+    font-family: inherit;
+}
+
+.woocommerce-order-received #bancard-iframe-container {
+    margin-top: 1.5rem;
+}
+
+/* Payment method selection */
+.wc_payment_method.payment_method_bancard_vpos {
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.wc_payment_method.payment_method_bancard_vpos:hover {
+    background-color: #f8f9fa;
+}
+
+.wc_payment_method.payment_method_bancard_vpos label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.wc_payment_method.payment_method_bancard_vpos label::after {
+    content: "🔒";
+    margin-left: 0.5rem;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .bancard-payment-container {
+        margin: 0.75rem 0;
+        padding: 1rem;
+        border-radius: 6px;
+    }
+    
+    #bancard-iframe-container {
+        min-height: 400px;
+        margin-top: 0.75rem;
+        border-radius: 6px;
+    }
+    
+    #bancard-iframe-container iframe {
+        min-height: 400px !important;
+    }
+    
+    .bancard-receipt-container {
+        padding: 1rem 0.75rem;
+    }
+    
+    .bancard-receipt-container h3 {
+        font-size: 1.25rem;
+    }
+    
+    .bancard-message {
+        padding: 0.75rem 1rem;
+        margin: 0.75rem 0;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bancard-payment-container {
+        padding: 0.75rem;
+    }
+    
+    #bancard-iframe-container {
+        min-height: 350px;
+    }
+    
+    #bancard-iframe-container iframe {
+        min-height: 350px !important;
+    }
+    
+    .bancard-redirect-notice {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================================================
+   Dark Mode Support
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    .bancard-payment-container {
+        background: #1f2937;
+        border-color: #374151;
+        color: #f9fafb;
+    }
+    
+    .bancard-description {
+        color: #d1d5db;
+    }
+    
+    .bancard-redirect-notice {
+        background: #1e3a8a;
+        border-color: #3b82f6;
+        color: #dbeafe;
+    }
+    
+    #bancard-iframe-container {
+        background: #ffffff;
+        border-color: #374151;
+    }
+    
+    .bancard-loading-spinner {
+        color: #d1d5db;
+    }
+    
+    .bancard-receipt-container h3 {
+        color: #f9fafb;
+    }
+    
+    .bancard-receipt-container p {
+        color: #d1d5db;
+    }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+.bancard-payment-container:focus-within {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.bancard-message[role="alert"] {
+    position: relative;
+}
+
+.bancard-message[role="alert"]::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: currentColor;
+}
+
+/* Screen reader only text */
+.bancard-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    .bancard-payment-container,
+    #bancard-iframe-container,
+    .bancard-message {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+    .bancard-payment-container {
+        border-width: 2px;
+        border-color: #000000;
+    }
+    
+    .bancard-redirect-notice {
+        border-width: 2px;
+        border-color: #000000;
+        background: #ffffff;
+        color: #000000;
+    }
+    
+    .bancard-message {
+        border-left-width: 6px;
+    }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .bancard-payment-container,
+    .bancard-message,
+    .bancard-loading-spinner .spinner {
+        animation: none;
+        transition: none;
+    }
+}
